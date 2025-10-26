@@ -1,38 +1,17 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 @layer base {
-  :root {
-    --background: #ffffff;
-    --foreground: #0f172a; /* slate-900 */
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
 
-    /* Fuentes */
-    --font-sans: 'Inter', sans-serif;
-    --font-serif: 'Lora', serif;
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
 }
-
-/* --- Estilos base --- */
-body {
-  background-color: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-serif);
-  font-weight: 700;
-}
-
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 5rem; /* Ajuste para el header fijo */
-}
-
 
 /* --- Fondo Aurora Animado --- */
 @keyframes aurora {
