@@ -1,18 +1,7 @@
 import type { Metadata } from "next";
-import { Inter, Lora } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: '--font-inter',
-});
-
-const lora = Lora({
-  subsets: ["latin"],
-  variable: '--font-lora',
-});
 
 export const metadata: Metadata = {
   title: "Jango | La Liga de Programadores",
@@ -25,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={`${inter.variable} ${lora.variable} font-sans`}>
+    <html lang="es" className="font-sans">
       <body className="antialiased" suppressHydrationWarning>
         <Header />
         <main>{children}</main>
