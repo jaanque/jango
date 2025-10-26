@@ -1,7 +1,5 @@
 'use client';
 
-import { useState } from 'react';
-import Image from 'next/image';
 import Hero from './components/landing/Hero';
 import Features from './components/landing/Features';
 import TrustLogos from './components/landing/TrustLogos';
@@ -13,19 +11,18 @@ import Faq from './components/landing/Faq';
 import Pricing from './components/landing/Pricing';
 import Cta from './components/landing/Cta';
 
-
 export default function Home() {
   return (
     <>
       <Hero />
-      <Features />
       <TrustLogos />
       <HowItWorks />
+      <Features />
       <WhyJango />
-      <PublicPrivateLeagues />
       <Testimonials />
-      <Faq />
+      <PublicPrivateLeagues />
       <Pricing />
+      <Faq />
       <Cta />
     </>
   );
