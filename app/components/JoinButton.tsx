@@ -19,14 +19,16 @@ const ArrowIcon = () => (
 const JoinButton = () => {
   return (
     <Link href="/register" passHref>
-      <motion.div
-        className="group hidden sm:inline-flex items-center justify-center rounded-full bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-slate-800 hover:shadow-lg hover:-translate-y-0.5"
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
-      >
-        <span>Únete Ahora</span>
-        <ArrowIcon />
-      </motion.div>
+      <a>
+        <motion.div
+          className="group hidden sm:inline-flex items-center justify-center rounded-full bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-slate-800 hover:shadow-lg hover:-translate-y-0.5"
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+        >
+          <span>Únete Ahora</span>
+          <ArrowIcon />
+        </motion.div>
+      </a>
     </Link>
   );
 };
