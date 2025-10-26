@@ -1,6 +1,6 @@
 const PublicPrivateLeagues = () => {
   return (
-    <section id="public-private-leagues" className="w-full bg-white py-24">
+    <section id="public-private-leagues" className="w-full bg-white py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-4">
         <h2 className="text-center text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">Ligas Públicas y Privadas</h2>
         <p className="mx-auto mt-4 max-w-3xl text-center text-lg text-slate-600">

@@ -17,7 +17,7 @@ const TestimonialCard = ({ quote, name, title, avatar }: { quote: string, name: 
 
 const Testimonials = () => {
   return (
-    <section id="testimonials" className="w-full bg-white py-24">
+    <section id="testimonials" className="w-full bg-white py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-4">
         <div className="text-center">
             <h2 className="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">No te lo decimos nosotros, te lo dicen ellos</h2>

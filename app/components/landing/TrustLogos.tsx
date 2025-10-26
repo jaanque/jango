@@ -1,6 +1,6 @@
 const TrustLogos = () => {
   return (
-    <section id="trust-logos" className="w-full bg-white py-24">
+    <section id="trust-logos" className="w-full bg-white py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-4">
         <h2 className="text-center text-sm font-semibold uppercase tracking-wider text-slate-600">
           Con la confianza de los mejores equipos del mundo

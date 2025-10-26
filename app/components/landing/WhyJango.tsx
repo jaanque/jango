@@ -22,7 +22,7 @@ const WhyJango = () => {
     });
 
   return (
-    <section id="why-jango" className="w-full bg-slate-50 py-24">
+    <section id="why-jango" className="w-full bg-slate-50 py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-4">
         <div
             ref={ref}
