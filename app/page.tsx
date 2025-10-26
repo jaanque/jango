@@ -11,7 +11,7 @@ import Cta from './components/landing/Cta';
 
 export default function Home() {
   return (
-    <>
+    <main className="aurora-background">
       <Hero />
       <GameSystem />
       <Advantages />
@@ -20,6 +20,6 @@ export default function Home() {
       <PrivateLeagues />
       <Faq />
       <Cta />
-    </>
+    </main>
   );
 }

@@ -1,4 +1,8 @@
+'use client';
+
+import { motion } from 'framer-motion';
 import { UserPlusIcon, UsersIcon, CheckCircleIcon, ArrowUpCircleIcon, StarIcon } from '@heroicons/react/24/outline';
+import { useInView } from 'react-intersection-observer';
 
 const steps = [
   {
@@ -29,32 +33,71 @@ const steps = [
 ];
 
 const GameSystem = () => {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.3,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+
   return (
-    <section id="game-system" className="w-full bg-white py-20 sm:py-24">
-      <div className="mx-auto max-w-7xl px-4">
-        <h2 className="text-center text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
-          Sistema de Juego
-        </h2>
-        <p className="mx-auto mt-4 max-w-3xl text-center text-lg text-slate-600">
-          Explicación sencilla y visual del sistema de juego.
-        </p>
-        <div className="mt-16">
-          <div className="flex flex-col items-center justify-center space-y-8 md:flex-row md:space-y-0 md:space-x-12">
+    <section id="game-system" className="w-full py-20 sm:py-24">
+      <div ref={ref} className="mx-auto max-w-7xl px-4">
+        <div className="text-center">
+          <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
+            Un Sistema de Juego <span className="text-green-400">Hecho para Crecer</span>
+          </h2>
+          <p className="mx-auto mt-4 max-w-3xl text-lg text-muted-foreground">
+            Desde tu primer reto hasta la liga de élite, nuestro sistema está diseñado para que siempre estés aprendiendo y mejorando.
+          </p>
+        </div>
+        <div className="relative mt-20">
+          <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-border" aria-hidden="true"></div>
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate={inView ? 'visible' : 'hidden'}
+            className="space-y-16"
+          >
             {steps.map((step, index) => (
-              <div key={index} className="flex flex-col items-center text-center">
-                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-green-100 text-green-600">
-                  <step.icon className="h-8 w-8" />
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                className="relative flex items-center"
+              >
+                <div className={`flex w-full items-start gap-8 ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
+                  <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-secondary shadow-md">
+                    <step.icon className="h-8 w-8 text-green-400" />
+                  </div>
+                  <div className={`w-full text-left ${index % 2 === 0 ? 'text-left' : 'text-right'}`}>
+                    <h3 className="text-2xl font-semibold">{step.title}</h3>
+                    <p className="mt-2 text-muted-foreground">{step.description}</p>
+                  </div>
                 </div>
-                <h3 className="mt-4 text-2xl font-semibold text-slate-900">{step.title}</h3>
-                <p className="mt-2 text-slate-500">{step.description}</p>
-              </div>
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform">
+                  <div className="h-4 w-4 rounded-full border-2 border-green-400 bg-background"></div>
+                </div>
+              </motion.div>
             ))}
-          </div>
-          <div className="mt-16 text-center">
-            <p className="text-lg text-slate-600">
-              División 5 → División 4 → División 3 → División 2 → División 1 → Liga Élite
-            </p>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

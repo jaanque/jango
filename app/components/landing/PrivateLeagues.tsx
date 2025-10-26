@@ -1,42 +1,80 @@
-import { BuildingOfficeIcon, UserGroupIcon, PresentationChartLineIcon, GlobeAltIcon } from '@heroicons/react/24/outline';
+'use client';
+
+import { motion } from 'framer-motion';
+import { BuildingOfficeIcon, UserGroupIcon, PresentationChartLineIcon } from '@heroicons/react/24/outline';
+import { useInView } from 'react-intersection-observer';
+import CTAButton from './CTAButton';
+
+const features = [
+  {
+    icon: BuildingOfficeIcon,
+    title: 'Ligas Personalizadas',
+    description: 'Gamifica el aprendizaje y la evaluación de tu equipo con tu propia marca.',
+  },
+  {
+    icon: UserGroupIcon,
+    title: 'Rankings y Torneos',
+    description: 'Fomenta la competencia sana con torneos corporativos y rankings internos.',
+  },
+  {
+    icon: PresentationChartLineIcon,
+    title: 'Panel de Métricas',
+    description: 'Obtén una visión clara del progreso y la actividad de tu equipo.',
+  },
+];
 
 const PrivateLeagues = () => {
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
+
+  const containerVariants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.2 } },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
   return (
-    <section id="private-leagues" className="w-full bg-white py-20 sm:py-24">
-      <div className="mx-auto max-w-7xl px-4">
+    <section id="private-leagues" className="w-full py-20 sm:py-24">
+      <div ref={ref} className="mx-auto max-w-7xl px-4">
         <div className="text-center">
-          <h2 className="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
-            Empresas y Ligas Privadas
+          <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
+            Ligas Privadas para <span className="text-green-400">Empresas</span>
           </h2>
-          <p className="mx-auto mt-4 max-w-3xl text-lg text-slate-600">
-            Gamifica el aprendizaje y evaluación de tu equipo técnico.
+          <p className="mx-auto mt-4 max-w-3xl text-lg text-muted-foreground">
+            Potencia el talento de tu equipo técnico con nuestra plataforma de gamificación.
           </p>
         </div>
-        <div className="mt-16 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
-          <div className="flex flex-col items-center text-center">
-            <BuildingOfficeIcon className="h-10 w-10 text-green-600" />
-            <h3 className="mt-4 text-xl font-semibold text-slate-900">Ligas personalizadas</h3>
-            <p className="mt-2 text-slate-500">Con tu logo y dominio.</p>
-          </div>
-          <div className="flex flex-col items-center text-center">
-            <UserGroupIcon className="h-10 w-10 text-green-600" />
-            <h3 className="mt-4 text-xl font-semibold text-slate-900">Rankings internos</h3>
-            <p className="mt-2 text-slate-500">Y torneos corporativos.</p>
-          </div>
-          <div className="flex flex-col items-center text-center">
-            <PresentationChartLineIcon className="h-10 w-10 text-green-600" />
-            <h3 className="mt-4 text-xl font-semibold text-slate-900">Panel de métricas</h3>
-            <p className="mt-2 text-slate-500">Y actividad.</p>
-          </div>
-        </div>
-        <div className="mt-16 text-center">
-          <a
-            href="#contact"
-            className="inline-block rounded-lg bg-green-600 px-8 py-3 text-lg font-semibold text-white hover:bg-green-700"
-          >
-            Contacta con nosotros para crear tu liga
-          </a>
-        </div>
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate={inView ? 'visible' : 'hidden'}
+          className="mt-20 grid grid-cols-1 gap-8 md:grid-cols-3"
+        >
+          {features.map((feature, index) => (
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              className="rounded-lg border border-border bg-secondary/50 p-8 text-center"
+            >
+              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-background">
+                <feature.icon className="h-8 w-8 text-green-400" />
+              </div>
+              <h3 className="mt-6 text-2xl font-semibold">{feature.title}</h3>
+              <p className="mt-4 text-muted-foreground">{feature.description}</p>
+            </motion.div>
+          ))}
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.8, duration: 0.5 }}
+          className="mt-20 text-center"
+        >
+          <CTAButton text="Contacta para Crear tu Liga" />
+        </motion.div>
       </div>
     </section>
   );

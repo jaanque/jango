@@ -1,3 +1,6 @@
+'use client';
+
+import { motion } from 'framer-motion';
 import {
   AcademicCapIcon,
   TrophyIcon,
@@ -9,84 +12,81 @@ import {
   ChartPieIcon,
   PaintBrushIcon,
 } from '@heroicons/react/24/outline';
+import { useInView } from 'react-intersection-observer';
 
 const userAdvantages = [
-  {
-    icon: AcademicCapIcon,
-    text: 'Aprende y mejora tus habilidades resolviendo retos reales.',
-  },
-  {
-    icon: TrophyIcon,
-    text: 'Gana puntos, insignias y trofeos por tu progreso.',
-  },
-  {
-    icon: ChartBarIcon,
-    text: 'Sube de liga y destaca en rankings regionales.',
-  },
-  {
-    icon: CodeBracketIcon,
-    text: 'Conecta tu GitHub y demuestra tu evolución real.',
-  },
-  {
-    icon: BriefcaseIcon,
-    text: 'Accede a premios, sorteos y oportunidades laborales.',
-  },
+  { icon: AcademicCapIcon, text: 'Aprende y mejora tus habilidades resolviendo retos reales.' },
+  { icon: TrophyIcon, text: 'Gana puntos, insignias y trofeos por tu progreso.' },
+  { icon: ChartBarIcon, text: 'Sube de liga y destaca en rankings regionales.' },
+  { icon: CodeBracketIcon, text: 'Conecta tu GitHub y demuestra tu evolución real.' },
+  { icon: BriefcaseIcon, text: 'Accede a premios, sorteos y oportunidades laborales.' },
 ];
 
 const companyAdvantages = [
-  {
-    icon: BuildingOffice2Icon,
-    text: 'Crea tu propia liga privada para empleados o candidatos.',
-  },
-  {
-    icon: UsersIcon,
-    text: 'Refuerza la cultura de aprendizaje y competencia sana.',
-  },
-  {
-    icon: ChartPieIcon,
-    text: 'Visualiza el rendimiento y la progresión de tus programadores.',
-  },
-  {
-    icon: PaintBrushIcon,
-    text: 'Personaliza con tu logo, colores y URL propia.',
-  },
+  { icon: BuildingOffice2Icon, text: 'Crea tu propia liga privada para empleados o candidatos.' },
+  { icon: UsersIcon, text: 'Refuerza la cultura de aprendizaje y competencia sana.' },
+  { icon: ChartPieIcon, text: 'Visualiza el rendimiento y la progresión de tus programadores.' },
+  { icon: PaintBrushIcon, text: 'Personaliza con tu logo, colores y URL propia.' },
 ];
 
 const Advantages = () => {
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
+
+  const containerVariants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.1 } },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.4 } },
+  };
+
+  const cardHoverEffect = {
+    scale: 1.03,
+    transition: { duration: 0.2 },
+  };
+
   return (
-    <section id="advantages" className="w-full bg-slate-50 py-20 sm:py-24">
-      <div className="mx-auto max-w-7xl px-4">
-        <h2 className="text-center text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
-          Ventajas de Participar
-        </h2>
-        <div className="mt-16 grid grid-cols-1 gap-12 md:grid-cols-2">
-          <div className="rounded-lg bg-white p-8 shadow-md">
-            <h3 className="text-2xl font-semibold text-slate-900">Para los usuarios</h3>
-            <ul className="mt-6 space-y-4">
-              {userAdvantages.map((advantage, index) => (
-                <li key={index} className="flex items-start">
-                  <div className="flex-shrink-0">
-                    <advantage.icon className="h-6 w-6 text-green-600" />
-                  </div>
-                  <p className="ml-4 text-slate-600">{advantage.text}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="rounded-lg bg-white p-8 shadow-md">
-            <h3 className="text-2xl font-semibold text-slate-900">Para las empresas</h3>
-            <ul className="mt-6 space-y-4">
-              {companyAdvantages.map((advantage, index) => (
-                <li key={index} className="flex items-start">
-                  <div className="flex-shrink-0">
-                    <advantage.icon className="h-6 w-6 text-green-600" />
-                  </div>
-                  <p className="ml-4 text-slate-600">{advantage.text}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
+    <section id="advantages" className="w-full py-20 sm:py-24">
+      <div ref={ref} className="mx-auto max-w-7xl px-4">
+        <div className="text-center">
+          <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
+            Ventajas <span className="text-green-400">Diseñadas para Ti</span>
+          </h2>
+          <p className="mx-auto mt-4 max-w-3xl text-lg text-muted-foreground">
+            Tanto si eres un programador buscando crecer como si eres una empresa buscando talento, tenemos lo que necesitas.
+          </p>
         </div>
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate={inView ? 'visible' : 'hidden'}
+          className="mt-20 grid grid-cols-1 gap-8 md:grid-cols-2"
+        >
+          <div className="flex flex-col gap-6">
+            <h3 className="text-center text-3xl font-bold md:text-left">Para Programadores</h3>
+            {userAdvantages.map((advantage, index) => (
+              <motion.div key={index} variants={itemVariants} whileHover={cardHoverEffect}>
+                <div className="flex items-center gap-4 rounded-lg border border-border bg-secondary/50 p-6">
+                  <advantage.icon className="h-8 w-8 flex-shrink-0 text-green-400" />
+                  <p className="text-muted-foreground">{advantage.text}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+          <div className="flex flex-col gap-6">
+            <h3 className="text-center text-3xl font-bold md:text-left">Para Empresas</h3>
+            {companyAdvantages.map((advantage, index) => (
+              <motion.div key={index} variants={itemVariants} whileHover={cardHoverEffect}>
+                <div className="flex items-center gap-4 rounded-lg border border-border bg-secondary/50 p-6">
+                  <advantage.icon className="h-8 w-8 flex-shrink-0 text-green-400" />
+                  <p className="text-muted-foreground">{advantage.text}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );
