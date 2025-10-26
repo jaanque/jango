@@ -1,27 +1,23 @@
 'use client';
 
 import Hero from './components/landing/Hero';
-import Features from './components/landing/Features';
-import TrustLogos from './components/landing/TrustLogos';
-import HowItWorks from './components/landing/HowItWorks';
-import WhyJango from './components/landing/WhyJango';
-import PublicPrivateLeagues from './components/landing/PublicPrivateLeagues';
-import Testimonials from './components/landing/Testimonials';
+import GameSystem from './components/landing/GameSystem';
+import Advantages from './components/landing/Advantages';
+import LeaguesAndTournaments from './components/landing/LeaguesAndTournaments';
+import ChallengesAndValidation from './components/landing/ChallengesAndValidation';
+import PrivateLeagues from './components/landing/PrivateLeagues';
 import Faq from './components/landing/Faq';
-import Pricing from './components/landing/Pricing';
 import Cta from './components/landing/Cta';
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <TrustLogos />
-      <HowItWorks />
-      <Features />
-      <WhyJango />
-      <Testimonials />
-      <PublicPrivateLeagues />
-      <Pricing />
+      <GameSystem />
+      <Advantages />
+      <LeaguesAndTournaments />
+      <ChallengesAndValidation />
+      <PrivateLeagues />
       <Faq />
       <Cta />
     </>
