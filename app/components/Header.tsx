@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import JoinButton from '../JoinButton';
+import JoinButton from './JoinButton';
 
 const HamburgerIcon = () => <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>;
 const CloseIcon = () => <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>;
@@ -30,6 +30,9 @@ export default function Header() {
             </nav>
           </div>
           <div className="flex items-center gap-4">
+            <Link href="/login" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
+              Login
+            </Link>
             <JoinButton />
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -50,7 +53,8 @@ export default function Header() {
             <Link href="#leagues" className="text-base font-medium text-muted-foreground hover:text-foreground" onClick={() => setIsOpen(false)}>Ligas y Torneos</Link>
             <Link href="#faq" className="text-base font-medium text-muted-foreground hover:text-foreground" onClick={() => setIsOpen(false)}>FAQs</Link>
             <div className="w-full border-t border-border my-2"></div>
-            <Link href="#cta" className="w-full text-center rounded-md px-4 py-3 text-base font-semibold text-primary-foreground bg-primary hover:bg-primary/90 transition-colors" onClick={() => setIsOpen(false)}>Únete</Link>
+            <Link href="/login" className="text-base font-medium text-muted-foreground hover:text-foreground" onClick={() => setIsOpen(false)}>Login</Link>
+            <Link href="/register" className="w-full text-center rounded-md px-4 py-3 text-base font-semibold text-primary-foreground bg-primary hover:bg-primary/90 transition-colors" onClick={() => setIsOpen(false)}>Únete Ahora</Link>
           </nav>
         </div>
       )}
