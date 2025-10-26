@@ -13,13 +13,15 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/98 backdrop-blur-[2px] border-b border-slate-200">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
-          <div className="flex items-center gap-6">
+        <div className="relative flex h-16 items-center justify-between">
+          <div className="flex items-center">
             <Link href="/" className="flex items-center gap-2 flex-shrink-0">
               <Image src="/logo.svg" alt="Logo Jango" width={28} height={28} className="h-7 w-7" />
               <span className="font-bold text-xl text-foreground">Jango</span>
             </Link>
-            <nav className="hidden items-center gap-2 md:flex">
+          </div>
+          <div className="hidden md:flex absolute inset-y-0 left-0 right-0 items-center justify-center">
+            <nav className="flex items-center gap-2">
               <Link href="#how-it-works" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground px-3 py-2 rounded-md">Sistema de Juego</Link>
               <Link href="#advantages" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground px-3 py-2 rounded-md">Ventajas</Link>
               <Link href="#leagues" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground px-3 py-2 rounded-md">Ligas y Torneos</Link>
@@ -27,8 +29,7 @@ export default function Header() {
             </nav>
           </div>
           <div className="flex items-center gap-4">
-            <Link href="#" className="hidden text-sm font-medium text-muted-foreground transition-colors hover:text-foreground sm:block">Login</Link>
-            <Link href="#pricing" className="hidden sm:block rounded-md px-4 py-2 text-sm font-semibold text-primary-foreground bg-primary hover:bg-primary/90 transition-colors">Planes</Link>
+            <Link href="#pricing" className="hidden sm:block rounded-md px-4 py-2 text-sm font-semibold text-primary-foreground bg-primary hover:bg-primary/90 transition-colors">Únete</Link>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="p-2 text-foreground md:hidden"
@@ -48,8 +49,7 @@ export default function Header() {
             <Link href="#leagues" className="text-base font-medium text-muted-foreground hover:text-foreground" onClick={() => setIsOpen(false)}>Ligas y Torneos</Link>
             <Link href="#faq" className="text-base font-medium text-muted-foreground hover:text-foreground" onClick={() => setIsOpen(false)}>FAQs</Link>
             <div className="w-full border-t border-border my-2"></div>
-            <Link href="#" className="text-base font-medium text-muted-foreground hover:text-foreground" onClick={() => setIsOpen(false)}>Login</Link>
-            <Link href="#pricing" className="w-full text-center rounded-md px-4 py-3 text-base font-semibold text-primary-foreground bg-primary hover:bg-primary/90 transition-colors" onClick={() => setIsOpen(false)}>Planes</Link>
+            <Link href="#pricing" className="w-full text-center rounded-md px-4 py-3 text-base font-semibold text-primary-foreground bg-primary hover:bg-primary/90 transition-colors" onClick={() => setIsOpen(false)}>Únete</Link>
           </nav>
         </div>
       )}
