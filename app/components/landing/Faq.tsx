@@ -35,11 +35,11 @@ const Faq = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="w-full py-20 sm:py-24">
+    <section id="faq" className="w-full bg-secondary/50 py-20 sm:py-24">
       <div className="mx-auto max-w-3xl px-4">
         <div className="text-center">
-          <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
-            Preguntas <span className="text-green-400">Frecuentes</span>
+          <h2 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+            Preguntas <span className="text-green-600">Frecuentes</span>
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
             ¿Tienes dudas? Aquí te dejamos las respuestas a las preguntas más comunes.
@@ -47,17 +47,17 @@ const Faq = () => {
         </div>
         <div className="mt-12 space-y-4">
           {faqData.map((faq, index) => (
-            <div key={index} className="overflow-hidden rounded-lg border border-border bg-secondary/50">
+            <div key={index} className="overflow-hidden rounded-xl border border-border bg-card shadow-sm">
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 className="flex w-full items-center justify-between p-6 text-left"
               >
-                <span className="text-lg font-medium">{faq.question}</span>
+                <span className="text-lg font-medium text-foreground">{faq.question}</span>
                 <motion.div
                   animate={{ rotate: openIndex === index ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <ChevronDownIcon className="h-5 w-5" />
+                  <ChevronDownIcon className="h-5 w-5 text-muted-foreground" />
                 </motion.div>
               </button>
               <AnimatePresence>

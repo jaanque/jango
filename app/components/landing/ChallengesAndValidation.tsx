@@ -36,11 +36,11 @@ const ChallengesAndValidation = () => {
   };
 
   return (
-    <section id="challenges-validation" className="w-full py-20 sm:py-24">
+    <section id="challenges-validation" className="w-full bg-secondary/50 py-20 sm:py-24">
       <div ref={ref} className="mx-auto max-w-7xl px-4">
         <div className="text-center">
-          <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
-            Retos y Validación: <span className="text-green-400">Tu Progreso, 100% Tuyo</span>
+          <h2 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+            Retos y Validación: <span className="text-green-600">Tu Progreso, 100% Tuyo</span>
           </h2>
           <p className="mx-auto mt-4 max-w-3xl text-lg text-muted-foreground">
             Nuestro editor seguro y nuestro sistema de validación garantizan que cada logro sea auténtico.
@@ -56,12 +56,12 @@ const ChallengesAndValidation = () => {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="rounded-lg border border-border bg-secondary/50 p-8 text-center"
+              className="rounded-xl border border-border bg-card p-8 text-center shadow-sm"
             >
-              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-background">
-                <feature.icon className="h-8 w-8 text-green-400" />
+              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-secondary">
+                <feature.icon className="h-8 w-8 text-green-600" />
               </div>
-              <h3 className="mt-6 text-2xl font-semibold">{feature.title}</h3>
+              <h3 className="mt-6 text-2xl font-semibold text-foreground">{feature.title}</h3>
               <p className="mt-4 text-muted-foreground">{feature.description}</p>
             </motion.div>
           ))}
@@ -71,8 +71,8 @@ const ChallengesAndValidation = () => {
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 0.8, duration: 0.5 }}
         >
-            <p className="mt-20 text-center text-xl font-semibold">
-                <LockClosedIcon className="inline-block h-6 w-6 text-green-400" /> Tu progreso es legítimo. Tus logros son reales.
+            <p className="mt-20 text-center text-xl font-semibold text-foreground">
+                <LockClosedIcon className="inline-block h-6 w-6 text-green-600" /> Tu progreso es legítimo. Tus logros son reales.
             </p>
         </motion.div>
       </div>

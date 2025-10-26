@@ -37,11 +37,11 @@ const PrivateLeagues = () => {
   };
 
   return (
-    <section id="private-leagues" className="w-full py-20 sm:py-24">
+    <section id="private-leagues" className="w-full bg-background py-20 sm:py-24">
       <div ref={ref} className="mx-auto max-w-7xl px-4">
         <div className="text-center">
-          <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
-            Ligas Privadas para <span className="text-green-400">Empresas</span>
+          <h2 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+            Ligas Privadas para <span className="text-green-600">Empresas</span>
           </h2>
           <p className="mx-auto mt-4 max-w-3xl text-lg text-muted-foreground">
             Potencia el talento de tu equipo técnico con nuestra plataforma de gamificación.
@@ -57,12 +57,12 @@ const PrivateLeagues = () => {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="rounded-lg border border-border bg-secondary/50 p-8 text-center"
+              className="rounded-xl border border-border bg-card p-8 text-center shadow-sm"
             >
-              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-background">
-                <feature.icon className="h-8 w-8 text-green-400" />
+              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-secondary">
+                <feature.icon className="h-8 w-8 text-green-600" />
               </div>
-              <h3 className="mt-6 text-2xl font-semibold">{feature.title}</h3>
+              <h3 className="mt-6 text-2xl font-semibold text-foreground">{feature.title}</h3>
               <p className="mt-4 text-muted-foreground">{feature.description}</p>
             </motion.div>
           ))}
