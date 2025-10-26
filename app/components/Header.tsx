@@ -22,7 +22,7 @@ export default function Header() {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'border-b border-slate-200 bg-white/80 backdrop-blur-lg' : 'bg-transparent'}`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-20 items-center justify-between">
+        <div className="flex h-16 items-center justify-between">
 
           {/* Logo */}
           <div className="flex-shrink-0">
@@ -62,7 +62,7 @@ export default function Header() {
             <Link href="#how-it-works" className="text-base font-medium text-slate-700 hover:text-slate-900" onClick={() => setIsOpen(false)}>Cómo Funciona</Link>
             <Link href="#pricing" className="text-base font-medium text-slate-700 hover:text-slate-900" onClick={() => setIsOpen(false)}>Planes</Link>
             <Link href="#faq" className="text-base font-medium text-slate-700 hover:text-slate-900" onClick={() => setIsOpen(false)}>FAQs</Link>
-            <div className="w-full border-t border-slate-200 my-2"></div>
+            <div className="w-full border-t border-slate-100 my-2"></div>
             <Link href="#" className="text-base font-medium text-slate-700 hover:text-slate-900" onClick={() => setIsOpen(false)}>Login</Link>
             <Link href="#pricing" className="w-full text-center rounded-md bg-slate-900 px-4 py-3 text-base font-semibold text-white transition-colors hover:bg-slate-800" onClick={() => setIsOpen(false)}>Únete a la Liga</Link>
           </nav>
