@@ -9,7 +9,7 @@ const Hero = () => {
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 lg:grid-cols-2">
         <div className="text-center lg:text-left">
           <h1 className="font-serif text-5xl font-bold tracking-tight text-slate-900 sm:text-6xl">
-            Donde tu Código te Define
+            Jango - Donde tu Código te Define
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-slate-600 sm:text-xl">
             <span className="font-semibold text-green-700">Jango</span> no es solo una plataforma, es tu arena. Resuelve retos, sube en el ranking y demuestra que eres el mejor. <span className="font-bold">Acelera tu carrera, código a código.</span>
