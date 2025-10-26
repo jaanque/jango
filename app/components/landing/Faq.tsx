@@ -18,7 +18,7 @@ const FaqItem = ({ question, answer }: { question: string, answer: string }) => 
 
 const Faq = () => {
   return (
-    <section id="faq" className="w-full bg-slate-50 py-24">
+    <section id="faq" className="w-full bg-slate-50 py-20 sm:py-24">
       <div className="mx-auto max-w-3xl px-4">
         <h2 className="text-center text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">Preguntas Frecuentes</h2>
         <div className="mt-12">

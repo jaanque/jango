@@ -1,6 +1,6 @@
 const HowItWorks = () => {
   return (
-    <section id="how-it-works" className="w-full bg-slate-50 py-24">
+    <section id="how-it-works" className="w-full bg-slate-50 py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-4">
         <h2 className="text-center text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">¿Cómo Funciona Jango?</h2>
         <p className="mx-auto mt-4 max-w-3xl text-center text-lg text-slate-600">

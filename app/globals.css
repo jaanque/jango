@@ -1,48 +1,52 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
   :root {
     --background: #ffffff;
-    --foreground: #020617; /* slate-950 */
-    --card: #ffffff;
-    --primary: #16a34a; /* green-600 */
-    --primary-foreground: #ffffff;
-    --muted: #f1f5f9; /* slate-100 */
-    --muted-foreground: #64748b; /* slate-500 */
-    --border: #e2e8f0; /* slate-200 */
+    --foreground: #0f172a; /* slate-900 */
+
+    /* Fuentes */
+    --font-sans: 'Inter', sans-serif;
+    --font-serif: 'Lora', serif;
   }
-}
-
-/* --- Animaciones --- */
-@keyframes fade-in-up {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes aurora {
-  from { background-position: 0% 50%; }
-  to { background-position: 100% 50%; }
-}
-
-.animate-fade-in-up {
-  animation: fade-in-up 1s ease-out both;
 }
 
 /* --- Estilos base --- */
 body {
   background-color: var(--background);
   color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 700;
 }
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem; /* Ajuste para el header fijo */
 }
 
+
 /* --- Fondo Aurora Animado --- */
+@keyframes aurora {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 100% 50%;
+  }
+}
+
 .aurora-background {
-  background-image: radial-gradient(ellipse at 20% 40%, rgba(22, 163, 74, 0.1) 0%, transparent 50%),
-                    radial-gradient(ellipse at 80% 60%, rgba(59, 130, 246, 0.08) 0%, transparent 50%);
-  background-size: 200% 200%;
-  animation: aurora 15s ease infinite alternate;
+  background: radial-gradient(ellipse at 20% 40%, rgba(22, 163, 74, 0.08) 0%, transparent 40%),
+              radial-gradient(ellipse at 80% 60%, rgba(59, 130, 246, 0.06) 0%, transparent 40%);
+  background-size: 300% 300%;
+  animation: aurora 25s ease-in-out infinite alternate;
 }

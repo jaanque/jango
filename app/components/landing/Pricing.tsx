@@ -8,7 +8,7 @@ const CheckIcon = () => (
 
 const Pricing = () => {
   return (
-    <section id="pricing" className="w-full bg-white py-24">
+    <section id="pricing" className="w-full bg-white py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-4">
         <div className="text-center">
           <h2 className="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">Un Plan Para Cada Meta</h2>
