@@ -23,18 +23,18 @@ export default function UserNav({ user }: { user: any }) {
           </Avatar>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56" align="end" forceMount>
+      <DropdownMenuContent className="w-56 bg-white shadow-lg" align="end" forceMount>
         <DropdownMenuLabel className="font-normal">
-          <div className="flex flex-col space-y-1">
+          <div className="flex flex-col space-y-1 p-2">
             <p className="text-sm font-medium leading-none">
               {user.email}
             </p>
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
-          <form action={signout}>
-            <button type="submit" className="w-full text-left">
+        <DropdownMenuItem asChild>
+          <form action={signout} className="w-full">
+            <button type="submit" className="w-full text-left p-2 text-red-600 hover:bg-red-50 rounded-md">
               Log out
             </button>
           </form>
