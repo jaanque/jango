@@ -17,7 +17,7 @@ export async function login(formData: FormData) {
     return redirect('/login?message=Could not authenticate user')
   }
 
-  return redirect('/')
+  return redirect('/dashboard')
 }
 
 export async function signup(formData: FormData) {
