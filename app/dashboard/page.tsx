@@ -20,7 +20,7 @@ export default async function DashboardPage() {
         recientes y más.
       </p>
       <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        <div className="rounded-xl border bg-card text-card-foreground shadow">
+        <div className="rounded-xl border bg-card text-card-foreground shadow dashboard-card">
           <div className="p-6 flex flex-row items-center justify-between space-y-0 pb-2">
             <h3 className="tracking-tight text-sm font-medium">
               Problemas resueltos
@@ -33,7 +33,7 @@ export default async function DashboardPage() {
             </p>
           </div>
         </div>
-        <div className="rounded-xl border bg-card text-card-foreground shadow">
+        <div className="rounded-xl border bg-card text-card-foreground shadow dashboard-card">
           <div className="p-6 flex flex-row items-center justify-between space-y-0 pb-2">
             <h3 className="tracking-tight text-sm font-medium">
               Envíos
@@ -46,7 +46,7 @@ export default async function DashboardPage() {
             </p>
           </div>
         </div>
-        <div className="rounded-xl border bg-card text-card-foreground shadow">
+        <div className="rounded-xl border bg-card text-card-foreground shadow dashboard-card">
           <div className="p-6 flex flex-row items-center justify-between space-y-0 pb-2">
             <h3 className="tracking-tight text-sm font-medium">
               Ranking
