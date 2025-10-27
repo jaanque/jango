@@ -1,4 +1,29 @@
-/* Estilos específicos para el dashboard */
+.dashboard-container {
+  padding: 2.5rem;
+  background-color: #f9fafb;
+}
+
+.dashboard-header {
+  margin-bottom: 2.5rem;
+}
+
+.dashboard-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+@media (min-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
 
 .dashboard-card {
   transition: all 0.3s ease-in-out;
@@ -6,5 +31,5 @@
 
 .dashboard-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }

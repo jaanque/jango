@@ -1,5 +1,7 @@
 import { createClient } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
+import DashboardCard from './components/DashboardCard'
+import './dashboard.css'
 
 export default async function DashboardPage() {
   const supabase = await createClient()
@@ -13,52 +15,30 @@ export default async function DashboardPage() {
   }
 
   return (
-    <div className="container mx-auto py-10">
-      <h1 className="text-4xl font-bold">Bienvenido/a, {user.email}</h1>
-      <p className="text-lg text-muted-foreground">
-        Este es tu `dashboard`. Aquí puedes ver tus estadísticas, problemas
-        recientes y más.
-      </p>
-      <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        <div className="rounded-xl border bg-card text-card-foreground shadow dashboard-card">
-          <div className="p-6 flex flex-row items-center justify-between space-y-0 pb-2">
-            <h3 className="tracking-tight text-sm font-medium">
-              Problemas resueltos
-            </h3>
-          </div>
-          <div className="p-6 pt-0">
-            <div className="text-2xl font-bold">0</div>
-            <p className="text-xs text-muted-foreground">
-              +0% desde la semana pasada
-            </p>
-          </div>
-        </div>
-        <div className="rounded-xl border bg-card text-card-foreground shadow dashboard-card">
-          <div className="p-6 flex flex-row items-center justify-between space-y-0 pb-2">
-            <h3 className="tracking-tight text-sm font-medium">
-              Envíos
-            </h3>
-          </div>
-          <div className="p-6 pt-0">
-            <div className="text-2xl font-bold">0</div>
-            <p className="text-xs text-muted-foreground">
-              +0% desde la semana pasada
-            </p>
-          </div>
-        </div>
-        <div className="rounded-xl border bg-card text-card-foreground shadow dashboard-card">
-          <div className="p-6 flex flex-row items-center justify-between space-y-0 pb-2">
-            <h3 className="tracking-tight text-sm font-medium">
-              Ranking
-            </h3>
-          </div>
-          <div className="p-6 pt-0">
-            <div className="text-2xl font-bold">#0</div>
-            <p className="text-xs text-muted-foreground">
-              +0% desde la semana pasada
-            </p>
-          </div>
-        </div>
+    <div className="dashboard-container">
+      <header className="dashboard-header">
+        <h1 className="text-4xl font-bold">Bienvenido/a, {user.email}</h1>
+        <p className="text-lg text-muted-foreground">
+          Este es tu `dashboard`. Aquí puedes ver tus estadísticas, problemas
+          recientes y más.
+        </p>
+      </header>
+      <div className="dashboard-grid">
+        <DashboardCard
+          title="Problemas resueltos"
+          value="0"
+          change="+0% desde la semana pasada"
+        />
+        <DashboardCard
+          title="Envíos"
+          value="0"
+          change="+0% desde la semana pasada"
+        />
+        <DashboardCard
+          title="Ranking"
+          value="#0"
+          change="+0% desde la semana pasada"
+        />
       </div>
     </div>
   )
