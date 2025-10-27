@@ -1,6 +1,7 @@
 import { createClient } from '@/lib/supabase/server'
 import UserNav from '@/app/components/UserNav'
 import Link from 'next/link'
+import ClientOnly from './ClientOnly'
 
 export default async function DashboardHeader() {
   const supabase = await createClient()
@@ -29,7 +30,7 @@ export default async function DashboardHeader() {
             Submissions
           </Link>
         </nav>
-        {user && <UserNav user={user} />}
+        {user && <ClientOnly><UserNav user={user} /></ClientOnly>}
       </div>
     </header>
   )
