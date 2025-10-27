@@ -1,25 +1,29 @@
-import type { Metadata } from "next";
-import "./globals.css";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+'use client'
 
-export const metadata: Metadata = {
-  title: "Jango | La Liga de Programadores",
-  description: "La plataforma de programación competitiva para gamificar tu aprendizaje y llevar tus habilidades al siguiente nivel.",
-};
+import { usePathname } from 'next/navigation'
+import type { Metadata } from 'next'
+import './globals.css'
+import Header from './components/Header'
+import Footer from './components/Footer'
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
+  const pathname = usePathname()
+  const noHeaderFooter =
+    pathname === '/login' ||
+    pathname === '/register' ||
+    pathname.startsWith('/dashboard')
+
   return (
     <html lang="es" className="font-sans">
       <body className="antialiased" suppressHydrationWarning>
-        <Header />
+        {!noHeaderFooter && <Header />}
         <main>{children}</main>
-        <Footer />
+        {!noHeaderFooter && <Footer />}
       </body>
     </html>
-  );
+  )
 }
