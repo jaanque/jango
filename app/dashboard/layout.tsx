@@ -1,4 +1,5 @@
 import DashboardHeader from '@/app/components/DashboardHeader'
+import './dashboard.css'
 
 export default function DashboardLayout({
   children,
