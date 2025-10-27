@@ -1,4 +1,7 @@
 .dashboard-container {
+  max-width: 80rem; /* Equivalent to max-w-7xl */
+  margin-left: auto;
+  margin-right: auto;
   padding: 2.5rem;
   background-color: #f9fafb;
 }
@@ -9,7 +12,7 @@
 
 .dashboard-grid {
   display: grid;
-  gap: 1rem;
+  gap: 1.5rem; /* Increased gap for better spacing */
   grid-template-columns: repeat(1, 1fr);
 }
 
@@ -21,7 +24,7 @@
 
 @media (min-width: 1024px) {
   .dashboard-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr); /* Changed from 4 to 3 */
   }
 }
 
